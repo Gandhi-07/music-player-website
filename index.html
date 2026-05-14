@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music Player</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#1e1e2f,#121212);
+      color:white;
+    }
+
+    .player{
+      width:350px;
+      background:#222;
+      border-radius:20px;
+      padding:25px;
+      text-align:center;
+      box-shadow:0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .player img{
+      width:220px;
+      height:220px;
+      border-radius:15px;
+      object-fit:cover;
+      margin-bottom:20px;
+    }
+
+    .player h2{
+      margin-bottom:5px;
+      font-size:26px;
+    }
+
+    .player p{
+      color:#bbb;
+      margin-bottom:20px;
+    }
+
+    audio{
+      width:100%;
+      margin-bottom:20px;
+    }
+
+    .controls{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+    }
+
+    .controls button{
+      width:55px;
+      height:55px;
+      border:none;
+      border-radius:50%;
+      background:#ff0055;
+      color:white;
+      font-size:20px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .controls button:hover{
+      background:#ff3377;
+      transform:scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="player">
+
+    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4" alt="Album Cover">
+
+    <h2>My Song</h2>
+    <p>Artist Name</p>
+
+    <audio id="audio">
+      <source src="music.mp3" type="audio/mp3">
+      Your browser does not support audio.
+    </audio>
+
+    <div class="controls">
+      <button onclick="backSong()">⏮</button>
+      <button onclick="playPause()">▶</button>
+      <button onclick="nextSong()">⏭</button>
+    </div>
+
+  </div>
+
+  <script>
+    let audio = document.getElementById("audio");
+    let playBtn = document.querySelectorAll("button")[1];
+
+    function playPause(){
+      if(audio.paused){
+        audio.play();
+        playBtn.innerHTML = "⏸";
+      }else{
+        audio.pause();
+        playBtn.innerHTML = "▶";
+      }
+    }
+
+    function nextSong(){
+      alert("Next song feature");
+    }
+
+    function backSong(){
+      alert("Previous song feature");
+    }
+  </script>
+
+</body>
+</html>
